@@ -23,7 +23,7 @@ class ShoppingListTableViewController: UITableViewController {
         alert.addTextField(configurationHandler: nil)
         let cancelButton = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let addButton = UIAlertAction(title: "Add", style: .default) { (_) in
-            guard let itemName = alert.textFields?[0].text else {return}
+            guard let itemName = alert.textFields?[0].text, itemName != "" else {return} // making sure text isn't empty
             ItemController.sharedInstance.create(name: itemName)
         }
         alert.addAction(cancelButton)
