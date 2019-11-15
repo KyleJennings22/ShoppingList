@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="T8h-th-tgy">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Shopping List Table View Controller-->
+        <scene sceneID="fru-hB-5gV">
+            <objects>
+                <tableViewController id="T8h-th-tgy" customClass="ShoppingListTableViewController" customModule="ShoppingList" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ltO-e5-6Tr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <navigationBar key="tableHeaderView" contentMode="scaleToFill" id="YDx-nR-TPI">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <items>
+                                <navigationItem title="Shopping List" id="cvk-vs-Ank">
+                                    <barButtonItem key="rightBarButtonItem" systemItem="add" id="tTx-Ht-2OF">
+                                        <connections>
+                                            <action selector="addItemButtonTapped:" destination="T8h-th-tgy" id="Sai-5W-Br5"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </navigationItem>
+                            </items>
+                        </navigationBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="itemCell" rowHeight="136" id="Jd5-80-RPU" customClass="ItemTableViewCell" customModule="ShoppingList" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="414" height="136"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jd5-80-RPU" id="j2Z-Sc-oSW">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="136"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gwf-C0-5LB">
+                                            <rect key="frame" x="364" y="48" width="40" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="Gwf-C0-5LB" secondAttribute="height" multiplier="1:1" id="NgG-Iz-TJk"/>
+                                                <constraint firstAttribute="width" constant="40" id="P02-7c-prU"/>
+                                            </constraints>
+                                            <state key="normal" image="uncheck"/>
+                                            <connections>
+                                                <action selector="purchasedButtonTapped:" destination="Jd5-80-RPU" eventType="touchUpInside" id="gkx-ru-MqL"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l3f-AV-vhi">
+                                            <rect key="frame" x="30" y="21" width="324" height="94"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Gwf-C0-5LB" firstAttribute="leading" secondItem="l3f-AV-vhi" secondAttribute="trailing" constant="10" id="5sq-MH-wHh"/>
+                                        <constraint firstItem="Gwf-C0-5LB" firstAttribute="trailing" secondItem="j2Z-Sc-oSW" secondAttribute="trailingMargin" constant="10" id="PGw-rm-9tq"/>
+                                        <constraint firstItem="Gwf-C0-5LB" firstAttribute="centerY" secondItem="j2Z-Sc-oSW" secondAttribute="centerY" id="QDa-jm-hTb"/>
+                                        <constraint firstItem="l3f-AV-vhi" firstAttribute="top" secondItem="j2Z-Sc-oSW" secondAttribute="topMargin" constant="10" id="QQV-D4-N6n"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="l3f-AV-vhi" secondAttribute="bottom" constant="10" id="YHw-dJ-2K2"/>
+                                        <constraint firstItem="l3f-AV-vhi" firstAttribute="leading" secondItem="j2Z-Sc-oSW" secondAttribute="leadingMargin" constant="10" id="pWr-oB-5d9"/>
+                                        <constraint firstItem="l3f-AV-vhi" firstAttribute="centerY" secondItem="j2Z-Sc-oSW" secondAttribute="centerY" id="t3q-OR-OFd"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="itemLabel" destination="l3f-AV-vhi" id="Qkk-9u-Kag"/>
+                                    <outlet property="purchasedButton" destination="Gwf-C0-5LB" id="guK-Ja-mcz"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="T8h-th-tgy" id="1DS-6p-oXz"/>
+                            <outlet property="delegate" destination="T8h-th-tgy" id="Te8-sq-pmF"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="762-zO-vYs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="286.95652173913044" y="129.91071428571428"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="uncheck" width="96" height="96"/>
+    </resources>
+</document>
